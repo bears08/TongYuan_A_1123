@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">药食同源</string>
+    <string name="action_settings">Settings</string>
+    <string name="copyright">Copyright©2010-2018 tongyuan.com.cn</string>
+    <string name="main_tab_title_today">今天</string>
+    <string name="main_tab_title_life">养生</string>
+    <string name="main_tab_title_me">我的</string>
+    <string name="label_done">完成</string>
+</resources>

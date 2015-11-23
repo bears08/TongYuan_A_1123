@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="logo_image">false</item>
+    <item type="id" name="tv_splash_version">false</item>
+    <item type="id" name="tv_update_info">false</item>
+    <item type="id" name="navigation_bar">false</item>
+    <item type="id" name="left_button">false</item>
+    <item type="id" name="right_button">false</item>
+    <item type="id" name="titlelayout">false</item>
+</resources>
