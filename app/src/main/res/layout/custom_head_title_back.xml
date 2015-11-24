@@ -35,7 +35,7 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="right"
         android:layout_marginRight="10dip"
-        android:background="@mipmap/bar_shopping_normal"
+        android:background="@mipmap/shop_car_normal"
         android:clickable="true"
         android:gravity="center"
         android:visibility="visible" />

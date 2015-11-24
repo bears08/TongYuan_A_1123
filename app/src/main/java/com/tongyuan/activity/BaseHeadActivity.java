@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tongyuan.R;
-import com.tongyuan.adapter.ShopCarAdapter;
+//import com.tongyuan.adapter.ShopCarAdapter;
 import com.tongyuan.dao.ShopCarDao;
 import com.tongyuan.domain.ShopCar;
 
@@ -31,31 +31,31 @@ public class BaseHeadActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 设置标题栏
-		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+//		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		// 加载布局
 		this.setContentView(R.layout.activity_base);
-		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-				R.layout.custom_head_title);
-		shopCar = (Button) this.findViewById(R.id.head_right_car);
-		shopNum = (TextView) this.findViewById(R.id.textShopCarNum);
-		shopCarDao = new ShopCarDao(getApplicationContext());
-		// 获取购物车商品数量
-		// TODO 抽成一个购物车类
-		shopCarNum = getShopCarNum();
-		shopCarClickListener = new ShopCarClickListener();
-		if (shopCarNum > 0) {
-			shopNum.setVisibility(View.VISIBLE);
-			// 用String类型
-			shopNum.setText(shopCarNum + "");
-			shopNum.setOnClickListener(shopCarClickListener);
-		} else {
-			shopNum.setVisibility(View.INVISIBLE);
-		}
-		shopCar.setOnClickListener(shopCarClickListener);
-		IntentFilter filter = new IntentFilter(TodayActivity.action);
-		IntentFilter filter2 = new IntentFilter(ShopCarAdapter.action);
-		registerReceiver(broadcastReceiver, filter);
-		registerReceiver(broadcastReceiver, filter2);
+//		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+//				R.layout.custom_head_title);
+//		shopCar = (Button) this.findViewById(R.id.head_right_car);
+//		shopNum = (TextView) this.findViewById(R.id.textShopCarNum);
+//		shopCarDao = new ShopCarDao(getApplicationContext());
+//		// 获取购物车商品数量
+//		// TODO 抽成一个购物车类
+//		shopCarNum = getShopCarNum();
+//		shopCarClickListener = new ShopCarClickListener();
+//		if (shopCarNum > 0) {
+//			shopNum.setVisibility(View.VISIBLE);
+//			// 用String类型
+//			shopNum.setText(shopCarNum + "");
+//			shopNum.setOnClickListener(shopCarClickListener);
+//		} else {
+//			shopNum.setVisibility(View.INVISIBLE);
+//		}
+//		shopCar.setOnClickListener(shopCarClickListener);
+//		IntentFilter filter = new IntentFilter(TodayActivity.action);
+//		IntentFilter filter2 = new IntentFilter(ShopCarAdapter.action);
+//		registerReceiver(broadcastReceiver, filter);
+//		registerReceiver(broadcastReceiver, filter2);
 	}
 
 	@Override
@@ -123,8 +123,8 @@ public class BaseHeadActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "没有商品，请继续购物。。。",
 						Toast.LENGTH_SHORT).show();
 			}else{
-				Intent intent = new Intent(BaseHeadActivity.this, ShopCarActivity.class);
-				startActivity(intent);
+//				Intent intent = new Intent(BaseHeadActivity.this, ShopCarActivity.class);
+//				startActivity(intent);
 			}
 		}
 	}
