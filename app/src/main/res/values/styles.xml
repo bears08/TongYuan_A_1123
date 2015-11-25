@@ -23,8 +23,15 @@
         <item name="android:layout_height">@dimen/divider_line_height</item>
     </style>
 
-    <style name="main_tab_textview_style">
+    <style name="main_tab_textview_style_select">
         <item name="android:textColor">@color/main_tab_txt_color_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="main_tab_textview_style_default">
+        <item name="android:textColor">@color/main_tab_txt_color_default</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_width">0.0dip</item>
         <item name="android:layout_height">wrap_content</item>

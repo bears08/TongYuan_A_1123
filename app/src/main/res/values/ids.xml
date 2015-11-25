@@ -7,4 +7,10 @@
     <item type="id" name="left_button">false</item>
     <item type="id" name="right_button">false</item>
     <item type="id" name="titlelayout">false</item>
+    <item type="id" name="home_viewpager">false</item>
+    <item type="id" name="home_tv_today">false</item>
+    <item type="id" name="home_tv_yang">false</item>
+    <item type="id" name="home_tv_my">false</item>
+    <item type="id" name="today_viewpager">false</item>
+    <item type="id" name="today_listview">false</item>
 </resources>

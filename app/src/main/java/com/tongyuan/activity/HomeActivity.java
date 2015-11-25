@@ -1,231 +1,165 @@
-//package com.tongyuan.activity;
-//
-//import android.annotation.SuppressLint;
-//import android.app.LocalActivityManager;
-//import android.content.Context;
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.os.Parcelable;
-//import android.support.v4.view.PagerAdapter;
-//import android.support.v4.view.ViewPager;
-//import android.support.v4.view.ViewPager.OnPageChangeListener;
-//import android.view.Menu;
-//import android.view.View;
-//import android.view.View.OnClickListener;
-//import android.view.ViewGroup;
-//import android.widget.TabHost;
-//import android.widget.TextView;
-//
-//import com.tongyuan.R;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@SuppressLint("ResourceAsColor")
-//public class HomeActivity extends BaseHeadActivity{
-//	/*
-//	 * 做好人，买好股，方能得好报
-//	 */
-//	Context context = null;
-//	LocalActivityManager manager = null;
-//	ViewPager pager = null;
-//	TabHost tabHost = null;
-//	TextView t1, t2, t3;
-//
-//
-//	@Override
-//	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-////		//设置标题栏
-////		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-////		//加载布局
-//		super.setContentView(R.layout.activity_home);
-////		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_head_title);
-//
-//
-//		context = HomeActivity.this;
-//		manager = new LocalActivityManager(this, true);
-//		manager.dispatchCreate(savedInstanceState);
-//
-//		initTextView();
-//		initPagerViewer();
-//
-//	}
-//
-//	/**
-//	 * 初始化标题
-//	 */
-//	private void initTextView() {
-//		t1 = (TextView) findViewById(R.id.text1);
-//		t2 = (TextView) findViewById(R.id.text2);
-//		t3 = (TextView) findViewById(R.id.text3);
-//
-//		t1.setOnClickListener((OnClickListener) new MyOnClickListener(0));
-//		t2.setOnClickListener(new MyOnClickListener(1));
-//		t3.setOnClickListener(new MyOnClickListener(2));
-//
-//	}
-//
-//	/**
-//	 * 初始化PageViewer
-//	 */
-//	private void initPagerViewer() {
-//		pager = (ViewPager) findViewById(R.id.viewpage);
-//		final ArrayList<View> list = new ArrayList<View>();
-//		Intent intent = new Intent(context, TodayActivity.class);
-//		list.add(getView("A", intent));
-//		Intent intent2 = new Intent(context, YangShengActivity.class);
-//		list.add(getView("B", intent2));
-//		Intent intent3 = new Intent(context, MyActivity.class);
-//		list.add(getView("C", intent3));
-//
-//		pager.setAdapter(new MyPagerAdapter(list));
-//		pager.setCurrentItem(0);
-//		pager.setOnPageChangeListener(new MyOnPageChangeListener());
-//	}
-//
-//
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// getMenuInflater().inflate(R.menu.activity_main, menu);
-//		return true;
-//	}
-//
-//	/**
-//	 * 通过activity获取视图
-//	 *
-//	 * @param id
-//	 * @param intent
-//	 * @return
-//	 */
-//	private View getView(String id, Intent intent) {
-//		return manager.startActivity(id, intent).getDecorView();
-//	}
-//
-//	/**
-//	 * Pager适配器
-//	 */
-//	public class MyPagerAdapter extends PagerAdapter {
-//		List<View> list = new ArrayList<View>();
-//
-//		public MyPagerAdapter(ArrayList<View> list) {
-//			this.list = list;
-//		}
-//
-//		@Override
-//		public void destroyItem(ViewGroup container, int position, Object object) {
-//			ViewPager pViewPager = ((ViewPager) container);
-//			pViewPager.removeView(list.get(position));
-//		}
-//
-//		@Override
-//		public boolean isViewFromObject(View arg0, Object arg1) {
-//			return arg0 == arg1;
-//		}
-//
-//		@Override
-//		public int getCount() {
-//			return list.size();
-//		}
-//
-//		@Override
-//		public Object instantiateItem(View arg0, int arg1) {
-//			ViewPager pViewPager = ((ViewPager) arg0);
-//			pViewPager.addView(list.get(arg1));
-//			return list.get(arg1);
-//		}
-//
-//		@Override
-//		public void restoreState(Parcelable arg0, ClassLoader arg1) {
-//
-//		}
-//
-//		@Override
-//		public Parcelable saveState() {
-//			return null;
-//		}
-//
-//		@Override
-//		public void startUpdate(View arg0) {
-//		}
-//	}
-//
-//	/**
-//	 * 页卡切换监听
-//	 */
-//	public class MyOnPageChangeListener implements OnPageChangeListener {
-//
-//		@Override
-//		public void onPageSelected(int arg0) {
-//			switch (arg0) {
-//			case 0:
-//				t1.setFocusable(true);
-//				t2.setFocusable(false);
-//				t3.setFocusable(false);
-////				t1.setTextColor(context.getResources().getColor(R.color.red));
-////				t2.setTextColor(context.getResources().getColor(R.color.black));
-////				t3.setTextColor(context.getResources().getColor(R.color.black));
-//				break;
-//			case 1:
-//				t1.setFocusable(false);
-//				t2.setFocusable(true);
-//				t3.setFocusable(false);
-////				t1.setTextColor(context.getResources().getColor(R.color.black));
-////				t2.setTextColor(context.getResources().getColor(R.color.red));
-////				t3.setTextColor(context.getResources().getColor(R.color.black));
-//				break;
-//			case 2:
-//				t1.setFocusable(false);
-//				t2.setFocusable(false);
-//				t3.setFocusable(true);
-////				t1.setTextColor(context.getResources().getColor(R.color.black));
-////				t2.setTextColor(context.getResources().getColor(R.color.black));
-////				t3.setTextColor(context.getResources().getColor(R.color.red));
-//				break;
-//			}
-//		}
-//
-//		@Override
-//		public void onPageScrollStateChanged(int arg0) {
-//
-//		}
-//
-//		@Override
-//		public void onPageScrolled(int arg0, float arg1, int arg2) {
-//
-//		}
-//	}
-//
-//	/**
-//	 * 头标点击监听
-//	 */
-//	public class MyOnClickListener implements View.OnClickListener {
-//		private int index = 0;
-//
-//		public MyOnClickListener(int i) {
-//			index = i;
-//		}
-//
-//		@Override
-//		public void onClick(View v) {
-//			pager.setCurrentItem(index);
-//		}
-//	};
-//
-//	@Override
-//	protected void onResume() {
-//		super.onResume();
-//		System.out.println("-------------------------------Home-------Resume");
-//		switch (pager.getCurrentItem()) {
-//		case 0:
-//			System.out.println("-----------suansuan1");
-//			TodayActivity todayActivity = (TodayActivity) manager.getActivity("A");
-//			System.out.println("-----------suansuan2");
-//			todayActivity.onResume();
-//			break;
-//
-//		default:
-//			break;
-//		}
-//	}
-//}
+package com.tongyuan.activity;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.TextView;
+
+import com.tongyuan.R;
+import com.tongyuan.fragment.MyFragment;
+import com.tongyuan.fragment.TodayFragment;
+import com.tongyuan.fragment.YangFragment;
+
+import static com.tongyuan.R.style.main_tab_textview_style_default;
+import static com.tongyuan.R.style.main_tab_textview_style_select;
+
+/**
+ * Created by zhangxh on 15-11-25.
+ */
+public class HomeActivity extends FragmentActivity {
+    private ViewPager viewPager = null;
+    private TextView today, yang, my;
+    private Context context;
+    private static final int TAB_TODAY = 0;
+    private static final int TAB_YANG = 1;
+    private static final int TAB_MY = 2;
+
+    private static final int TAB_COUNT = 3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        context = HomeActivity.this;
+        initTextView();
+        viewPager = (ViewPager) findViewById(R.id.home_viewpager);
+        viewPager.setAdapter(new HomeViewPagerAdapter(getSupportFragmentManager()));
+        viewPager.addOnPageChangeListener(new HomeViewPagerChangeListener());
+    }
+
+    private void initTextView() {
+        today = (TextView) this.findViewById(R.id.home_tv_today);
+        yang = (TextView) this.findViewById(R.id.home_tv_yang);
+        my = (TextView) this.findViewById(R.id.home_tv_my);
+
+        today.setOnClickListener(new HomeTabOnClickListener(TAB_TODAY));
+        yang.setOnClickListener(new HomeTabOnClickListener(TAB_YANG));
+        my.setOnClickListener(new HomeTabOnClickListener(TAB_MY));
+    }
+
+    /**
+     * 头标点击监听
+     */
+    public class HomeTabOnClickListener implements View.OnClickListener {
+        private int index = 0;
+
+        public HomeTabOnClickListener(int i) {
+            index = i;
+        }
+
+        @Override
+        public void onClick(View v) {
+            //todo 修改下面的字体颜色
+            viewPager.setCurrentItem(index);
+        }
+    }
+
+    ;
+
+    public class HomeViewPagerAdapter extends FragmentPagerAdapter {
+        public HomeViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return new TodayFragment();
+                case 1:
+                    return new YangFragment();
+                case 2:
+                    return new MyFragment();
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return TAB_COUNT;
+        }
+    }
+
+
+    private class HomeViewPagerChangeListener implements ViewPager.OnPageChangeListener {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            Drawable topToday = null;
+            Drawable topYang = null;
+            Drawable topMy = null;
+            switch (position) {
+
+                case 0:
+                    topToday = getResources().getDrawable(R.mipmap.main_tab_today_selected);
+                    topToday.setBounds(0,0,topToday.getMinimumWidth(),topToday.getMinimumWidth());
+                    topYang = getResources().getDrawable(R.mipmap.main_tab_life_default);
+                    topYang.setBounds(0,0,topYang.getMinimumWidth(),topYang.getMinimumWidth());
+                    topMy = getResources().getDrawable(R.mipmap.main_tab_me_default);
+                    topMy.setBounds(0, 0, topMy.getMinimumWidth(), topMy.getMinimumWidth());
+                    today.setCompoundDrawables(null, topToday, null, null);
+                    today.setTextAppearance(context,R.style.main_tab_textview_style_select);
+                    yang.setCompoundDrawables(null, topYang, null, null);
+                    yang.setTextAppearance(context,R.style.main_tab_textview_style_default);
+                    my.setCompoundDrawables(null, topMy, null, null);
+                    my.setTextAppearance(context,R.style.main_tab_textview_style_default);
+                    break;
+                case 1:
+                    topToday = getResources().getDrawable(R.mipmap.main_tab_today_default);
+                    topToday.setBounds(0,0,topToday.getMinimumWidth(),topToday.getMinimumWidth());
+                    topYang = getResources().getDrawable(R.mipmap.main_tab_life_selected);
+                    topYang.setBounds(0,0,topYang.getMinimumWidth(),topYang.getMinimumWidth());
+                    topMy = getResources().getDrawable(R.mipmap.main_tab_me_default);
+                    topMy.setBounds(0,0,topMy.getMinimumWidth(),topMy.getMinimumWidth());
+                    today.setCompoundDrawables(null, topToday, null, null);
+                    today.setTextAppearance(context,R.style.main_tab_textview_style_default);
+                    yang.setCompoundDrawables(null, topYang, null, null);
+                    yang.setTextAppearance(context,R.style.main_tab_textview_style_select);
+                    my.setCompoundDrawables(null, topMy, null, null);
+                    my.setTextAppearance(context,R.style.main_tab_textview_style_default);
+                    break;
+                case 2:
+                    topToday = getResources().getDrawable(R.mipmap.main_tab_today_default);
+                    topToday.setBounds(0,0,topToday.getMinimumWidth(),topToday.getMinimumWidth());
+                    topYang = getResources().getDrawable(R.mipmap.main_tab_life_default);
+                    topYang.setBounds(0,0,topYang.getMinimumWidth(),topYang.getMinimumWidth());
+                    topMy = getResources().getDrawable(R.mipmap.main_tab_me_selected);
+                    topMy.setBounds(0,0,topMy.getMinimumWidth(),topMy.getMinimumWidth());
+                    today.setCompoundDrawables(null, topToday, null, null);
+                    today.setTextAppearance(context,R.style.main_tab_textview_style_default);
+                    yang.setCompoundDrawables(null, topYang, null, null);
+                    yang.setTextAppearance(context,R.style.main_tab_textview_style_default);
+                    my.setCompoundDrawables(null, topMy, null, null);
+                    my.setTextAppearance(context,R.style.main_tab_textview_style_select);
+                    break;
+            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    }
+}

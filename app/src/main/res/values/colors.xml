@@ -6,4 +6,5 @@
     <color name="white">#ffffffff</color>
     <color name="line_normal">#ffeeeeee</color>
     <color name="main_tab_txt_color_selector">#ffff0000</color>
+    <color name="main_tab_txt_color_default">#bfbfbf</color>
 </resources>

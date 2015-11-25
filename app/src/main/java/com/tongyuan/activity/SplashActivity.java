@@ -304,7 +304,8 @@ public class SplashActivity extends Activity {
 	}
 
 	protected void enterHome() {
-		Intent intent = new Intent(this, BaseHeadActivity.class);
+		//todo
+		Intent intent = new Intent(this, HomeActivity.class);
 		startActivity(intent);
 		// 关闭当前页面
 		finish();
