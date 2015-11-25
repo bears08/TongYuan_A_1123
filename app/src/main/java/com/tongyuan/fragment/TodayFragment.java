@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.tongyuan.R;
 
@@ -29,7 +30,8 @@ public class TodayFragment extends Fragment {
     // /////////////////////ListView////////////////
     private List<Map<String, Object>> mData;
     //    private TodayAdapter adapter;
-    private ListView listView;
+//    private ListView listView;
+    private TextView listView;
     private ProgressDialog progressDialog;
     private int current = 0;
     private int count = 10;
@@ -50,7 +52,7 @@ public class TodayFragment extends Fragment {
         context = this.getActivity();
         View view = inflater.inflate(R.layout.fragment_today, null);
         viewPager = (ViewPager) view.findViewById(R.id.today_viewpager);
-        listView = (ListView) view.findViewById(R.id.today_listview);
+        listView = (TextView) view.findViewById(R.id.today_listview);
 
         imageViews = new ArrayList<ImageView>();
 
@@ -73,6 +75,18 @@ public class TodayFragment extends Fragment {
         @Override
         public boolean isViewFromObject(View view, Object object) {
             return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(View container, int position) {
+            ImageView iv = imageViews.get(position);
+            ((ViewPager) container).addView(iv);
+            return iv;
+        }
+
+        @Override
+        public void destroyItem(View arg0, int arg1, Object arg2) {
+            ((ViewPager) arg0).removeView((View) arg2);
         }
 
     }
