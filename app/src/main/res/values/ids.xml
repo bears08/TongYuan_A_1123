@@ -6,6 +6,8 @@
     <item type="id" name="navigation_bar">false</item>
     <item type="id" name="left_button">false</item>
     <item type="id" name="right_button">false</item>
+    <item type="id" name="address">false</item>
+    <item type="id" name="shop_car_num">false</item>
     <item type="id" name="titlelayout">false</item>
     <item type="id" name="home_viewpager">false</item>
     <item type="id" name="home_tv_today">false</item>
@@ -13,4 +15,7 @@
     <item type="id" name="home_tv_my">false</item>
     <item type="id" name="today_viewpager">false</item>
     <item type="id" name="today_listview">false</item>
+    <item type="id" name="yang_tab_line">false</item>
+    <item type="id" name="yang_content">false</item>
+    <item type="id" name="yang_list_view">false</item>
 </resources>

@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="divider_line_height">1.0dip</dimen>
+    <dimen name="yang_parent_item_width">80.0dip</dimen>
 </resources>

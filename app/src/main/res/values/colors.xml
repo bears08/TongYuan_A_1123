@@ -5,6 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffffff</color>
     <color name="line_normal">#ffeeeeee</color>
+    <color name="red">#ffff0000</color>
     <color name="main_tab_txt_color_selector">#ffff0000</color>
     <color name="main_tab_txt_color_default">#bfbfbf</color>
+    <color name="bg_pre_common">#ffeeeeee</color>
+    <color name="yang_tab_bg">#fff0f0f0</color>
 </resources>
