@@ -18,4 +18,5 @@
     <item type="id" name="yang_tab_line">false</item>
     <item type="id" name="yang_content">false</item>
     <item type="id" name="yang_list_view">false</item>
+    <item type="id" name="tv_category">false</item>
 </resources>

@@ -2,37 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <ListView
+        android:id="@id/yang_list_view"
+        android:layout_width="0px"
         android:layout_height="fill_parent"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:divider="@null"
+        android:scrollbars="none" />
 
-        <RelativeLayout
-            android:layout_width="@dimen/yang_parent_item_width"
-            android:layout_height="fill_parent"
-            android:background="@color/yang_tab_bg">
-
-            <View
-                android:id="@id/yang_tab_line"
-                android:layout_width="1.0px"
-                android:layout_height="fill_parent"
-                android:layout_alignParentRight="true"
-                android:background="@color/bg_pre_common" />
-
-            <ListView
-                android:id="@id/yang_list_view"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:divider="@null"
-                android:scrollbars="none" />
-        </RelativeLayout>
-
-        <FrameLayout
-            android:id="@id/yang_content"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
-    </LinearLayout>
+    <FrameLayout
+        android:id="@id/yang_content"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_weight="4" />
 </LinearLayout>

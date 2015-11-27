@@ -10,4 +10,5 @@
     <color name="main_tab_txt_color_default">#bfbfbf</color>
     <color name="bg_pre_common">#ffeeeeee</color>
     <color name="yang_tab_bg">#fff0f0f0</color>
+    <color name="gray_m">#ff333333</color>
 </resources>
