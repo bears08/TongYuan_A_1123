@@ -22,6 +22,11 @@
         <item name="android:layout_width">@dimen/divider_line_height</item>
         <item name="android:layout_height">@dimen/divider_line_height</item>
     </style>
+    <style name="divider_line_green">
+        <item name="android:background">@color/green</item>
+        <item name="android:layout_width">@dimen/divider_line_height</item>
+        <item name="android:layout_height">@dimen/divider_line_height</item>
+    </style>
 
     <style name="main_tab_textview_style_select">
         <item name="android:textColor">@color/main_tab_txt_color_selector</item>

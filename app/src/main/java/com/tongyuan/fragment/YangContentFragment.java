@@ -31,23 +31,16 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by zhangxh on 15-11-25.
  */
-public class TodayFragment extends Fragment {
-    private String TAG = "TodayFragment";
+public class YangContentFragment extends Fragment {
+    private String TAG = "YangContentFragment";
     private Context context;
     public static final String action = "jason.broadcast.action";
-    // /////////////////////ListView////////////////
     private List<Map<String, Object>> mData;
-    //    private TodayAdapter adapter;
     private ListView listView;
     private ProgressDialog progressDialog;
     private int current = 0;
     private int count = 10;
-    private String url = "suansuan";
 
-    // /////////////////////ViewPager////////////////
-    private ViewPager viewPager;
-    int pics[] = {R.mipmap.shop_car_icon_dj, R.mipmap.ic_launcher, R.mipmap.shop_car_collection, R.mipmap.shop_car_icon_dm};
-    private List<ImageView> imageViews;// 滑动的图片集合
 
     // 定时任务
     private ScheduledExecutorService scheduledExecutorService;
@@ -56,7 +49,6 @@ public class TodayFragment extends Fragment {
         public void handleMessage(Message message) {
             switch (message.what){
                 case 1 :
-                    viewPager.setCurrentItem(currentItem);
                     break;
                 case 2 :
                     listView.setAdapter(new TodayListViewAdapter(context,mData));
@@ -70,63 +62,14 @@ public class TodayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = this.getActivity();
-        View view = inflater.inflate(R.layout.fragment_today, null);
-        viewPager = (ViewPager) view.findViewById(R.id.today_viewpager);
+        View view = inflater.inflate(R.layout.fragment_yang_content, null);
         listView = (ListView) view.findViewById(R.id.today_listview);
-
-        imageViews = new ArrayList<ImageView>();
-        for (int i = 0; i < pics.length; i++) {
-            ImageView img = new ImageView(context);
-            img.setImageResource(pics[i]);
-            imageViews.add(img);
-        }
-        viewPager.setAdapter(new TodayViewPagerAdapter());
-        viewPager.setCurrentItem(0);
-        scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        // 当Activity显示出来后，每两秒切换一次图片显示
-        scheduledExecutorService.scheduleAtFixedRate(new ScrollRunnable(), 1, 2,
-                TimeUnit.SECONDS);
         handler.post(new GetListViewRunable());
 
         return view;
     }
 
-    private class TodayViewPagerAdapter extends PagerAdapter {
-        @Override
-        public int getCount() {
-            return pics.length;
-        }
 
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public Object instantiateItem(View container, int position) {
-            ImageView iv = imageViews.get(position);
-            ((ViewPager) container).addView(iv);
-            return iv;
-        }
-
-        @Override
-        public void destroyItem(View arg0, int arg1, Object arg2) {
-            ((ViewPager) arg0).removeView((View) arg2);
-        }
-
-    }
-
-    private class ScrollRunnable implements Runnable {
-        @Override
-        public void run() {
-            synchronized (viewPager) {
-                currentItem = (currentItem + 1) % imageViews.size();
-                Message message = handler.obtainMessage();
-                message.what =1;
-                handler.sendMessage(message);
-            }
-        }
-    }
 
     private class GetListViewRunable implements Runnable{
 
