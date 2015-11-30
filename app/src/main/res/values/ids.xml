@@ -19,4 +19,17 @@
     <item type="id" name="yang_content">false</item>
     <item type="id" name="yang_list_view">false</item>
     <item type="id" name="tv_category">false</item>
+    <item type="id" name="login_layout">false</item>
+    <item type="id" name="login_picture">false</item>
+    <item type="id" name="login_name">false</item>
+    <item type="id" name="login_button">false</item>
+    <item type="id" name="my_address_layout">false</item>
+    <item type="id" name="tv_my_address">false</item>
+    <item type="id" name="my_order_layout">false</item>
+    <item type="id" name="tv_my_order">false</item>
+    <item type="id" name="my_point_layout">false</item>
+    <item type="id" name="tv_my_point">false</item>
+    <item type="id" name="my_youhui_layout">false</item>
+    <item type="id" name="tv_my_youhui">false</item>
+    <item type="id" name="btn_logout">false</item>
 </resources>
